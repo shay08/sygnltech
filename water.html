@@ -213,7 +213,91 @@
   .tracker-frame { width: 100%; height: 700px; border: 1px solid var(--border); margin-top: 2rem; position: relative; }
   .tracker-frame iframe { width: 100%; height: 100%; border: none; }
   .tracker-actions { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .water-briefing-strip {
+    border: 1px solid rgba(0,201,177,0.35);
+    background: rgba(0,201,177,0.06);
+    margin: 2rem 0 1.5rem;
+    overflow: hidden;
+  }
 
+  .briefing-live-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--teal);
+    padding: 0.75rem 1rem;
+  }
+
+  .briefing-ticker {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 0.9rem 0;
+  }
+
+  .briefing-ticker span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: briefingTicker 45s linear infinite;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--white);
+  }
+
+  @keyframes briefingTicker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+
+  .water-briefing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .water-brief-card {
+    border: 1px solid var(--border);
+    background: var(--card);
+    padding: 1.5rem;
+  }
+
+  .water-brief-card.alert {
+    border-color: rgba(255,75,75,0.45);
+    background: rgba(255,75,75,0.05);
+  }
+
+  .water-brief-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+  }
+
+  .water-brief-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.35rem;
+    letter-spacing: 0.03em;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .water-brief-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .water-briefing-grid {
+      grid-template-columns: 1fr;
+    }
+  }
   #evidence { background: var(--black); }
   .evidence-card { border: 1px solid var(--border); background: var(--card); padding: 3rem; margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
   .evidence-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
@@ -394,6 +478,34 @@
   </div>
   <h2 class="section-title">The Signal Map<br>Is Live.</h2>
   <p class="section-sub">View real-time community water reports across Grenada. Submit your own status directly from this page.</p>
+    <div class="water-briefing-strip">
+    <div class="briefing-live-label">Live Intelligence Briefing</div>
+    <div class="briefing-ticker">
+      <span>
+        LIVE SIGNALS: 34 reports received • 15 no-water reports • 5 reports over 7 days • 3 parishes represented • Current disruption cycle active • Westerhall broken main advisory logged • Field outreach completed June 9 • Community Impact Duration™ counting
+      </span>
+    </div>
+  </div>
+
+  <div class="water-briefing-grid">
+    <div class="water-brief-card">
+      <div class="water-brief-label">Current Situation</div>
+      <div class="water-brief-title">34 community reports submitted</div>
+      <p>Reports now span 3 parishes, with 15 no-water reports currently documented.</p>
+    </div>
+
+    <div class="water-brief-card alert">
+      <div class="water-brief-label">Most Significant Signal</div>
+      <div class="water-brief-title">Restoration does not equal reliability</div>
+      <p>Recent reports show water may return temporarily, then weaken or disappear again.</p>
+    </div>
+
+    <div class="water-brief-card">
+      <div class="water-brief-label">Evidence Layer</div>
+      <div class="water-brief-title">Community + field + institutional signals</div>
+      <p>Reports are supported by field outreach, NAWASA advisories, and public community complaints.</p>
+    </div>
+  </div>
   <div class="tracker-frame">
     <iframe src="https://shay08.github.io/water-signal-tracker/" title="Water Signal Tracker™ Live Map" loading="lazy" allowfullscreen></iframe>
   </div>
