@@ -1,20 +1,25 @@
 User-agent: *
 Allow: /
 
-# International search engine crawlers
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-User-agent: Baiduspider
-Allow: /
-
-User-agent: Yandex
-Allow: /
-
 User-agent: DuckDuckBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
 Allow: /
 
 User-agent: LinkedInBot
